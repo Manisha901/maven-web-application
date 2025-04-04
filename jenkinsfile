@@ -27,7 +27,7 @@ sshagent(['679c7c70-3ef1-430a-9550-eda9261b4567']) {
 sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@172.31.7.55:/opt/apache-tomcat-9.0.102/webapps/"
 }
 }
-/*
+*/
 }
 catch(e){
     // If there was an exception thrown, the build failed
@@ -64,6 +64,3 @@ def sendSlackNotifications(String buildStatus = 'STARTED') {
   // Send notifications
   slackSend (color: colorCode, message: summary, channel: '#icicibankteam')
 }
-
-
-
