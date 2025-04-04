@@ -7,6 +7,7 @@ echo "the workspace is: ${env.WORKSPACE}"
 echo "the jenkins Home directory is: ${env.JENKINS_HOME}"
 echo "the jenkins url is: ${env.JENKINS_URL}"
 def mavenHome = tool name: 'maven 3.9.9'
+properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')), pipelineTriggers([pollSCM('* * * * *')])])
 try {
 stage('CheckOutCode'){
 git branch: 'development', credentialsId: '499d6e99-a6c5-4fe6-89c5-3d1ca8cd0585', url: 'https://github.com/Manisha901/maven-web-application.git'
